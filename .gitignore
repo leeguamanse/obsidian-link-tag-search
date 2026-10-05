@@ -1,0 +1,28 @@
+# Local test vault and generated release files
+/dev-vault/
+/dist/
+/before-note-ui-test.md
+/obsidian.d.ts
+
+# Dependencies, coverage, and local environment
+node_modules/
+coverage/
+.env
+.env.*
+!.env.example
+
+# Temporary files and editor / OS state
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
+*~
+/tmp/
+/temp/
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/

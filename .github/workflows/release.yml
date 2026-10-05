@@ -1,0 +1,41 @@
+name: Release plugin
+
+on:
+  push:
+    tags: ['*']
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Verify release version
+        run: |
+          node -e "const m=require('./manifest.json'); if(process.env.GITHUB_REF_NAME!==m.version) throw new Error('Tag must match manifest.version without a v prefix'); const versions=require('./versions.json'); if(versions[m.version]!==m.minAppVersion) throw new Error('Update versions.json before releasing');"
+      - run: node --test test/core.test.js test/plugin.test.js
+      - run: node build.cjs
+      - run: node --check dist/main.js
+      - name: Attest release assets
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-path: |
+            dist/main.js
+            dist/manifest.json
+            dist/styles.css
+      - name: Create draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" --verify-tag --draft \
+            --title "Link Tag Search $GITHUB_REF_NAME" --notes-file RELEASE_NOTES.md \
+            dist/main.js dist/manifest.json dist/styles.css

@@ -1,0 +1,9 @@
+{
+  "id": "link-tag-search",
+  "name": "Link Tag Search",
+  "version": "0.1.0",
+  "minAppVersion": "1.13.7",
+  "description": "Tag notes and individual links, then search their tags together.",
+  "author": "Suah",
+  "isDesktopOnly": false
+}

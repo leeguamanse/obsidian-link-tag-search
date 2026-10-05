@@ -1,0 +1,7 @@
+{
+  "name": "link-tag-search",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {"build": "node build.cjs", "test": "node --test test/*.test.js"},
+  "license": "MIT"
+}

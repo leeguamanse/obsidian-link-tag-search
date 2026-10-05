@@ -1,0 +1,29 @@
+.lts-view { padding:16px; display:flex; flex-direction:column; gap:10px; }
+.lts-heading { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.lts-heading h3 { margin:0; font-size:1.15em; }
+.lts-muted, .lts-help, .lts-path, .lts-target { color:var(--text-muted); font-size:var(--font-smallest); overflow-wrap:anywhere; }
+.lts-view p { margin:0; }
+.lts-search, .lts-tag-input { width:100%; }
+.lts-search { min-height:38px; }
+.lts-controls { display:flex; gap:6px; }
+.lts-controls button { flex:1; }
+.lts-controls button.is-active { background:var(--interactive-accent); color:var(--text-on-accent); }
+.lts-status { font-size:var(--font-smallest); color:var(--text-muted); }
+.lts-results { display:flex; flex-direction:column; gap:10px; overflow-y:auto; flex:1; min-height:80px; }
+.lts-result { border:1px solid var(--background-modifier-border); border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:7px; background:var(--background-primary); }
+.lts-result-top { display:flex; align-items:flex-start; gap:7px; }
+.lts-kind { font-size:var(--font-smallest); color:var(--text-faint); flex-shrink:0; padding-top:3px; }
+button.lts-result-title { height:auto; border:0; box-shadow:none; padding:0; text-align:left; white-space:normal; background:none; color:var(--text-normal); font-weight:600; overflow-wrap:anywhere; line-height:1.45; }
+button.lts-result-title:hover { color:var(--text-accent); }
+.lts-tags { display:flex; flex-wrap:wrap; gap:5px; }
+button.lts-tag { height:auto; padding:3px 8px; border-radius:20px; border:0; box-shadow:none; color:var(--tag-color); background:var(--tag-background); font-size:var(--font-smallest); }
+.lts-actions { display:flex; flex-wrap:wrap; gap:6px; margin-top:2px; }
+button.lts-small { font-size:var(--font-smallest); height:auto; padding:4px 7px; }
+.lts-empty { padding:20px 4px; color:var(--text-muted); }
+.lts-help { padding-top:7px; border-top:1px solid var(--background-modifier-border); line-height:1.6; }
+.lts-modal label { display:block; margin:16px 0 10px; }
+.lts-modal input { display:block; margin-top:8px; }
+.lts-error { color:var(--text-error); min-height:1.4em; white-space:pre-wrap; }
+.lts-picker { display:flex; flex-direction:column; gap:7px; max-height:55vh; overflow-y:auto; }
+button.lts-picker-item { display:flex; flex-direction:column; text-align:left; align-items:flex-start; gap:3px; height:auto; padding:10px; white-space:normal; overflow-wrap:anywhere; }
+.lts-picker-item small { color:var(--text-muted); }
